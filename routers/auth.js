@@ -25,15 +25,7 @@ router.post(
   createUser
 );
 
-router.post(
-  "/",
-  [
-    check("email", "No existe email").isEmail(),
-    check("password", "El minimo de caracteres son de 6").isLength({ min: 6 }),
-    validatorForm,
-  ],
-  loginUser
-);
+router.post("/", loginUser);
 
 router.get("/renew", validarJwt, revalidationToken);
 
